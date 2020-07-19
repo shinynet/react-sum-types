@@ -71,7 +71,7 @@ const todoUpdateService = (isComplete, todo) => () => new Promise((resolve, reje
 
 		// Uncomment for Result
 		resolve({id, label, isComplete})
-	}, 1000)
+	}, 250)
 })
 
 export const fetchTodos = () => dispatch => {

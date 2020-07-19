@@ -1,6 +1,5 @@
 import daggy from 'daggy'
 import * as R from 'ramda'
-import RemoteData from './RemoteData'
 
 const Todo = daggy.taggedSum('Todo', {
 	Complete: ['id', 'label'],
@@ -10,7 +9,7 @@ const Todo = daggy.taggedSum('Todo', {
 const {Complete, Incomplete} = Todo
 
 // equals :: Setoid a => a ~> a -> Boolean
-RemoteData.prototype.equals = function (that) {
+Todo.prototype.equals = function (that) {
 	return this.cata({
 		Complete: id => R.equals(id, that.id),
 		Incomplete: id => R.equals(id, that.id),

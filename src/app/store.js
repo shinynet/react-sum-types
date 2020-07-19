@@ -1,8 +1,12 @@
-import { configureStore } from '@reduxjs/toolkit';
-import counterReducer from '../features/counter/counterSlice';
+import {configureStore, getDefaultMiddleware} from '@reduxjs/toolkit'
+import todosReducer from 'features/todos/todosSlice'
 
 export default configureStore({
-  reducer: {
-    counter: counterReducer,
-  },
-});
+	middleware: getDefaultMiddleware({
+		immutableCheck: false,
+		serializableCheck: false,
+	}),
+	reducer: {
+		todos: todosReducer
+	}
+})
